@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSweepr - Remove Your Digital Blueprint</title>
+    <meta name="description" content="DataSweepr helps you remove your digital footprint from the internet. Protect your privacy and take control of your online presence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-btn-login {
+            color: #667eea;
+            border-color: #667eea;
+        }
+
+        .nav-btn-login:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn-signup {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-btn-signup:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .step p {
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .step {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #e1e5e9;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            z-index: 2;
+        }
+
+        .step.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.2);
+            transform: scale(1.15);
+        }
+
+        .step.completed {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .step-label {
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            white-space: nowrap;
+            opacity: 0.7;
+        }
+
+        .step.active .step-label {
+            color: #667eea;
+            opacity: 1;
+            font-weight: 700;
+        }
+
+        .step.completed .step-label {
+            color: #28a745;
+            opacity: 1;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            right: 80px;
+            height: 4px;
+            background: #e1e5e9;
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        .step-line-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #667eea 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 2px;
+        }
+
+
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Navigation Buttons */
+        .step-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-prev {
+            background: #f8f9fa;
+            color: #666;
+            border: 2px solid #e1e5e9;
+        }
+
+        .btn-prev:hover {
+            background: #e9ecef;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .password-toggle {
+            position: relative;
+        }
+
+        .password-toggle input {
+            padding-right: 50px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .form-footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 10% auto;
+                padding: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">DataSweepr</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="nav-btn nav-btn-login">Login</a></li>
+                <li><a href="#" class="nav-btn nav-btn-signup">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in-up">Remove Your Digital Blueprint</h1>
+            <p class="fade-in-up">Take control of your online privacy. DataSweepr helps you remove your digital footprint from the internet and protect your personal information.</p>
+            <div class="cta-buttons fade-in-up">
+                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose DataSweepr?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Complete Privacy Protection</h3>
+                    <p>Remove your personal information from data brokers, people search sites, and public records to protect your privacy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Efficient</h3>
+                    <p>Our automated system quickly identifies and removes your data from hundreds of websites and databases.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Ongoing Monitoring</h3>
+                    <p>We continuously monitor for new appearances of your data and automatically remove them to keep you protected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy Dashboard</h3>
+                    <p>Track your removal progress and manage your privacy settings through our intuitive dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Comprehensive Coverage</h3>
+                    <p>We cover major data brokers, social media platforms, and public records to ensure complete removal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Deep Scan Technology</h3>
+                    <p>Our advanced algorithms scan the deep web and dark web to find and remove your personal information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Scan Your Digital Footprint</h3>
+                    <p>We scan the internet to find all instances of your personal information across data brokers and public records.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Submit Removal Requests</h3>
+                    <p>Our system automatically submits removal requests to all identified sources containing your information.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Monitor & Maintain</h3>
+                    <p>We continuously monitor for new appearances and ensure your information stays removed from the internet.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Stay Protected</h3>
+                    <p>Receive regular reports on your privacy status and get alerts when new threats are detected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Take Control of Your Privacy?</h2>
+            <p>Join thousands of users who have already removed their digital footprint from the internet.</p>
+            <a href="#" class="btn btn-primary">Start Your Free Scan</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="features">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Get help with your account or technical issues. Our support team responds within 24 hours.</p>
+                    <a href="mailto:support@datasweepr.com" style="color: #667eea; text-decoration: none; font-weight: 600;">support@datasweepr.com</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time for immediate assistance with your privacy concerns.</p>
+                    <a href="#" style="color: #667eea; text-decoration: none; font-weight: 600;">Start Chat</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>Phone Support</h3>
+                    <p>Speak directly with our privacy experts. Available Monday-Friday, 9 AM - 6 PM EST.</p>
+                    <a href="tel:+1-800-DATA-SWEEP" style="color: #667eea; text-decoration: none; font-weight: 600;">1-800-DATA-SWEEP</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataSweepr</h3>
+                    <p>Protecting your digital privacy and helping you maintain control over your online presence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#features">Data Removal</a></li>
+                        <li><a href="#features">Privacy Monitoring</a></li>
+                        <li><a href="#features">Identity Protection</a></li>
+                        <li><a href="#features">Dark Web Monitoring</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#contact">Help Center</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#privacy-policy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#press">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DataSweepr. All rights reserved. Protecting your digital privacy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Your DataSweepr Account</h2>
+            
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active" data-step="1">
+                    1
+                    <div class="step-label">Personal Info</div>
+                </div>
+                <div class="step" data-step="2">
+                    2
+                    <div class="step-label">Contact</div>
+                </div>
+                <div class="step" data-step="3">
+                    3
+                    <div class="step-label">Security</div>
+                </div>
+                <div class="step-line">
+                    <div class="step-line-fill"></div>
+                </div>
+            </div>
+            
+            <form id="signupForm">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" data-step="1">
+                    <h3>Personal Information</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem;">Let's start with your basic information</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <div class="error-message" id="firstNameError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <div class="error-message" id="lastNameError"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="nav-btn btn-next" onclick="nextStep()">Next Step</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Contact Information -->
+                <div class="form-step" data-step="2">
+                    <h3>Contact Information</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem;">How can we reach you?</p>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Country of Residence *</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select your country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="JP">Japan</option>
+                            <option value="IN">India</option>
+                            <option value="BR">Brazil</option>
+                            <option value="MX">Mexico</option>
+                            <option value="IT">Italy</option>
+                            <option value="ES">Spain</option>
+                            <option value="NL">Netherlands</option>
+                            <option value="SE">Sweden</option>
+                            <option value="NO">Norway</option>
+                            <option value="DK">Denmark</option>
+                            <option value="FI">Finland</option>
+                            <option value="CH">Switzerland</option>
+                            <option value="AT">Austria</option>
+                            <option value="BE">Belgium</option>
+                            <option value="IE">Ireland</option>
+                            <option value="NZ">New Zealand</option>
+                            <option value="SG">Singapore</option>
+                            <option value="HK">Hong Kong</option>
+                            <option value="KR">South Korea</option>
+                            <option value="CN">China</option>
+                            <option value="RU">Russia</option>
+                            <option value="ZA">South Africa</option>
+                            <option value="AE">United Arab Emirates</option>
+                            <option value="SA">Saudi Arabia</option>
+                            <option value="TR">Turkey</option>
+                            <option value="PL">Poland</option>
+                            <option value="CZ">Czech Republic</option>
+                            <option value="HU">Hungary</option>
+                            <option value="RO">Romania</option>
+                            <option value="BG">Bulgaria</option>
+                            <option value="HR">Croatia</option>
+                            <option value="SI">Slovenia</option>
+                            <option value="SK">Slovakia</option>
+                            <option value="LT">Lithuania</option>
+                            <option value="LV">Latvia</option>
+                            <option value="EE">Estonia</option>
+                            <option value="MT">Malta</option>
+                            <option value="CY">Cyprus</option>
+                            <option value="GR">Greece</option>
+                            <option value="PT">Portugal</option>
+                            <option value="IS">Iceland</option>
+                            <option value="LU">Luxembourg</option>
+                            <option value="LI">Liechtenstein</option>
+                            <option value="MC">Monaco</option>
+                            <option value="AD">Andorra</option>
+                            <option value="SM">San Marino</option>
+                            <option value="VA">Vatican City</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                        <div class="error-message" id="countryError"></div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="nav-btn btn-prev" onclick="prevStep()">Previous</button>
+                        <button type="button" class="nav-btn btn-next" onclick="nextStep()">Next Step</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Security Setup -->
+                <div class="form-step" data-step="3">
+                    <h3>Security Setup</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem;">Create a strong password to protect your account</p>
+                    
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <div class="password-toggle">
+                            <input type="password" id="password" name="password" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                        </div>
+                        <div class="error-message" id="passwordError"></div>
+                        <small style="color: #666; font-size: 0.9rem;">Password must be at least 8 characters with uppercase, lowercase, and number</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password *</label>
+                        <div class="password-toggle">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <button type="button" class="toggle-password" onclick="toggleConfirmPassword()">👁️</button>
+                        </div>
+                        <div class="error-message" id="confirmPasswordError"></div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="nav-btn btn-prev" onclick="prevStep()">Previous</button>
+                        <button type="submit" class="nav-btn btn-submit" id="submitBtn">
+                            <span id="submitText">Create Account</span>
+                            <span id="submitLoading" style="display: none;">Creating Account...</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="form-footer">
+                Already have an account? <a href="#" id="loginLink">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Welcome Back to DataSweepr</h2>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address *</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                    <div class="error-message" id="loginEmailError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password *</label>
+                    <div class="password-toggle">
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                        <button type="button" class="toggle-password" onclick="toggleLoginPassword()">👁️</button>
+                    </div>
+                    <div class="error-message" id="loginPasswordError"></div>
+                </div>
+                
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="rememberMe" name="rememberMe" style="width: auto; margin-right: 8px;">
+                        Remember me
+                    </label>
+                    <a href="#" id="forgotPasswordLink" style="color: #667eea; text-decoration: none; font-size: 0.9rem;">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="loginSubmitBtn">
+                    <span id="loginSubmitText">Sign In</span>
+                    <span id="loginSubmitLoading" style="display: none;">Signing In...</span>
+                </button>
+            </form>
+            
+            <div class="form-footer">
+                Don't have an account? <a href="#" id="signupLink">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and steps
+        document.querySelectorAll('.feature-card, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Modal functionality
+        const signupModal = document.getElementById('signupModal');
+        const loginModal = document.getElementById('loginModal');
+        const closeBtns = document.querySelectorAll('.close');
+        const signupForm = document.getElementById('signupForm');
+        const loginForm = document.getElementById('loginForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitLoading = document.getElementById('submitLoading');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const loginSubmitText = document.getElementById('loginSubmitText');
+        const loginSubmitLoading = document.getElementById('loginSubmitLoading');
+        
+        // Step management
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        // Open signup modal when clicking Get Started buttons or Sign Up nav button
+        document.querySelectorAll('.btn-primary, .nav-btn-signup').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                signupModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Open login modal when clicking Login nav button
+        document.querySelectorAll('.nav-btn-login').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Switch between modals
+        document.getElementById('loginLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            signupModal.style.display = 'none';
+            loginModal.style.display = 'block';
+        });
+
+        document.getElementById('signupLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            signupModal.style.display = 'block';
+        });
+
+        // Close modal when clicking X
+        closeBtns.forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                signupModal.style.display = 'none';
+                loginModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+                resetLoginForm();
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === signupModal) {
+                signupModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+            }
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetLoginForm();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (signupModal.style.display === 'block') {
+                    signupModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    resetForm();
+                }
+                if (loginModal.style.display === 'block') {
+                    loginModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    resetLoginForm();
+                }
+            }
+        });
+
+        // Step navigation functions
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepDisplay();
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function updateStepDisplay() {
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((step, index) => {
+                const stepNumber = index + 1;
+                step.classList.remove('active', 'completed');
+                
+                if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                } else if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Update progress line
+            const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            document.querySelector('.step-line-fill').style.width = progress + '%';
+
+            // Show/hide form steps
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+                if (parseInt(step.dataset.step) === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        // Form validation and submission
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                // Show loading state
+                submitBtn.disabled = true;
+                submitText.style.display = 'none';
+                submitLoading.style.display = 'inline';
+                
+                // Simulate form submission (replace with actual API call)
+                setTimeout(() => {
+                    alert('Account created successfully! Welcome to DataSweepr. You will receive a confirmation email shortly.');
+                    signupModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    resetForm();
+                    
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitText.style.display = 'inline';
+                    submitLoading.style.display = 'none';
+                }, 2000);
+            }
+        });
+
+        // Login form handling
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateLoginForm()) {
+                // Show loading state
+                loginSubmitBtn.disabled = true;
+                loginSubmitText.style.display = 'none';
+                loginSubmitLoading.style.display = 'inline';
+                
+                // Simulate login (replace with actual API call)
+                setTimeout(() => {
+                    alert('Login successful! Welcome back to DataSweepr.');
+                    loginModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    resetLoginForm();
+                    
+                    // Reset button state
+                    loginSubmitBtn.disabled = false;
+                    loginSubmitText.style.display = 'inline';
+                    loginSubmitLoading.style.display = 'none';
+                }, 2000);
+            }
+        });
+
+        // Password toggle functions
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = passwordInput.nextElementSibling;
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        function toggleConfirmPassword() {
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const toggleBtn = confirmPasswordInput.nextElementSibling;
+            
+            if (confirmPasswordInput.type === 'password') {
+                confirmPasswordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                confirmPasswordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        function toggleLoginPassword() {
+            const loginPasswordInput = document.getElementById('loginPassword');
+            const toggleBtn = loginPasswordInput.nextElementSibling;
+            
+            if (loginPasswordInput.type === 'password') {
+                loginPasswordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                loginPasswordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        // Step validation
+        function validateCurrentStep() {
+            let isValid = true;
+            
+            // Reset all error messages
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+
+            if (currentStep === 1) {
+                // Validate Step 1: Personal Information
+                const firstName = document.getElementById('firstName').value.trim();
+                if (!firstName) {
+                    showError('firstNameError', 'First name is required');
+                    isValid = false;
+                } else if (firstName.length < 2) {
+                    showError('firstNameError', 'First name must be at least 2 characters');
+                    isValid = false;
+                }
+
+                const lastName = document.getElementById('lastName').value.trim();
+                if (!lastName) {
+                    showError('lastNameError', 'Last name is required');
+                    isValid = false;
+                } else if (lastName.length < 2) {
+                    showError('lastNameError', 'Last name must be at least 2 characters');
+                    isValid = false;
+                }
+
+                const email = document.getElementById('email').value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email) {
+                    showError('emailError', 'Email is required');
+                    isValid = false;
+                } else if (!emailRegex.test(email)) {
+                    showError('emailError', 'Please enter a valid email address');
+                    isValid = false;
+                }
+            } else if (currentStep === 2) {
+                // Validate Step 2: Contact Information
+                const phone = document.getElementById('phone').value.trim();
+                
+                if (!phone) {
+                    showError('phoneError', 'Phone number is required');
+                    isValid = false;
+                } else if (phone.length < 10) {
+                    showError('phoneError', 'Please enter a valid phone number (at least 10 digits)');
+                    isValid = false;
+                }
+
+                const country = document.getElementById('country').value;
+                if (!country) {
+                    showError('countryError', 'Please select your country');
+                    isValid = false;
+                }
+            } else if (currentStep === 3) {
+                // Validate Step 3: Security Setup
+                const password = document.getElementById('password').value;
+                if (!password) {
+                    showError('passwordError', 'Password is required');
+                    isValid = false;
+                } else if (password.length < 8) {
+                    showError('passwordError', 'Password must be at least 8 characters long');
+                    isValid = false;
+                } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+                    showError('passwordError', 'Password must contain at least one uppercase letter, one lowercase letter, and one number');
+                    isValid = false;
+                }
+
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                if (!confirmPassword) {
+                    showError('confirmPasswordError', 'Please confirm your password');
+                    isValid = false;
+                } else if (password !== confirmPassword) {
+                    showError('confirmPasswordError', 'Passwords do not match');
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        // Complete form validation (for final submission)
+        function validateForm() {
+            let isValid = true;
+            
+            // Reset all error messages
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+
+            // Validate First Name
+            const firstName = document.getElementById('firstName').value.trim();
+            if (!firstName) {
+                showError('firstNameError', 'First name is required');
+                isValid = false;
+            } else if (firstName.length < 2) {
+                showError('firstNameError', 'First name must be at least 2 characters');
+                isValid = false;
+            }
+
+            // Validate Last Name
+            const lastName = document.getElementById('lastName').value.trim();
+            if (!lastName) {
+                showError('lastNameError', 'Last name is required');
+                isValid = false;
+            } else if (lastName.length < 2) {
+                showError('lastNameError', 'Last name must be at least 2 characters');
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                showError('emailError', 'Email is required');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Validate Phone
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (!phone) {
+                showError('phoneError', 'Phone number is required');
+                isValid = false;
+            } else if (phone.length < 10) {
+                showError('phoneError', 'Please enter a valid phone number (at least 10 digits)');
+                isValid = false;
+            }
+
+            // Validate Country
+            const country = document.getElementById('country').value;
+            if (!country) {
+                showError('countryError', 'Please select your country');
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('password').value;
+            if (!password) {
+                showError('passwordError', 'Password is required');
+                isValid = false;
+            } else if (password.length < 8) {
+                showError('passwordError', 'Password must be at least 8 characters long');
+                isValid = false;
+            } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+                showError('passwordError', 'Password must contain at least one uppercase letter, one lowercase letter, and one number');
+                isValid = false;
+            }
+
+            // Validate Confirm Password
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (!confirmPassword) {
+                showError('confirmPasswordError', 'Please confirm your password');
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                showError('confirmPasswordError', 'Passwords do not match');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        function resetForm() {
+            signupForm.reset();
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+            submitBtn.disabled = false;
+            submitText.style.display = 'inline';
+            submitLoading.style.display = 'none';
+            
+            // Reset step display
+            currentStep = 1;
+            updateStepDisplay();
+        }
+
+        function resetLoginForm() {
+            loginForm.reset();
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+            loginSubmitBtn.disabled = false;
+            loginSubmitText.style.display = 'inline';
+            loginSubmitLoading.style.display = 'none';
+        }
+
+        function validateLoginForm() {
+            let isValid = true;
+            
+            // Reset all error messages
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+
+            // Validate Email
+            const email = document.getElementById('loginEmail').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                showError('loginEmailError', 'Email is required');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                showError('loginEmailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById('loginPassword').value;
+            if (!password) {
+                showError('loginPasswordError', 'Password is required');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
