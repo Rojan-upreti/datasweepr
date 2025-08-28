@@ -1,0 +1,24 @@
+{
+  "name": "browser-history-domain-parser",
+  "version": "1.0.0",
+  "description": "Chrome extension that parses browser history and displays unique domains",
+  "main": "popup.js",
+  "scripts": {
+    "build": "echo 'Extension is ready to load in Chrome'",
+    "generate-icons": "node generate_icons.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "browser-history",
+    "domain-parser",
+    "privacy"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^2.11.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

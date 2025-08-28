@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Browser History Domain Parser",
+  "version": "1.0",
+  "description": "Parse browser history and display last 100 unique domains with Firebase authentication",
+  "permissions": [
+    "history",
+    "activeTab"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Browser History Domains"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+} 
