@@ -1,12 +1,14 @@
 // Firebase configuration
+// IMPORTANT: Replace these placeholder values with your actual Firebase configuration
+// You can get these values from your Firebase Console
 const firebaseConfig = {
-  apiKey: "AIzaSyDlPf7xaLTcARbZHtVpPYEDpSRRZHWyuWU",
-  authDomain: "datasweepr.firebaseapp.com",
-  projectId: "datasweepr",
-  storageBucket: "datasweepr.firebasestorage.app",
-  messagingSenderId: "1071200842389",
-  appId: "1:1071200842389:web:d2d3b2adbea581f1ea619c",
-  measurementId: "G-6D5KW2MFV2"
+  apiKey: "YOUR_API_KEY_HERE",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 
 // Initialize Firebase

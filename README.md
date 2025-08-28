@@ -53,7 +53,11 @@ npm start
 cd extention
 ```
 
-2. Load the extension in your browser:
+2. Set up Firebase configuration:
+   - Copy `firebase-config.example.js` to `firebase-config.js`
+   - Replace the placeholder values with your actual Firebase configuration from the Firebase Console
+
+3. Load the extension in your browser:
    - Open Chrome/Edge and go to `chrome://extensions/`
    - Enable "Developer mode"
    - Click "Load unpacked" and select the `extention` folder

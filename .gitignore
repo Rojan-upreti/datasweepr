@@ -100,3 +100,6 @@ ui-debug.log
 # Extension build files
 extention/dist/
 extention/build/
+
+# Extension configuration files with sensitive data
+extention/firebase-config.js
